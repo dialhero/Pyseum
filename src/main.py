@@ -1,11 +1,12 @@
 import pandas as pd
+import tabulate
 
 # read csv file into pandas dataframe
 df = pd.read_csv("../MetObjects.csv", 
                  dtype=str, 
                  skip_blank_lines=False, 
-                 nrows=50, 
-                 usecols=["Object Number", "Title", "Country"])
+                 nrows=20, 
+                 usecols=["Object Number", "Object Name", "Title", "Country"])
 
 print(df.to_string(
     index=False,
@@ -14,3 +15,9 @@ print(df.to_string(
     justify="right",
     na_rep=""
 ))
+
+def print_as_table(df):
+    print(df.to_markdown(
+        index=False,
+        tablefmt="fancy_grid"
+    ))
