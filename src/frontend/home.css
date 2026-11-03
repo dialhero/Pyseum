@@ -1,0 +1,143 @@
+:root {
+    color: #000006;
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: 15% minmax(0, 1fr);
+    height: 100vh;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    padding: 1rem;
+    background: #e4002b;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.sidebar h1 {
+    flex: none;
+    margin: 0 0 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.query-list {
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.query-list form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.25rem;
+}
+
+.query-list button {
+    width: 100%;
+    padding: 0.85rem;
+    border: 2px solid #fff;
+    border-radius: 0.75rem;
+    background: #fff;
+    color: #000006;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+.query-list button:hover {
+    background: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+.query-list button[aria-current="true"] {
+    border-color: #000006;
+    background: #000006;
+    color: #fff;
+}
+
+.query-list button:focus-visible,
+.table-scroll:focus-visible {
+    outline: 3px solid #5d1049;
+    outline-offset: -3px;
+}
+
+.query-list button[aria-current="true"]:focus-visible {
+    outline-color: #fff;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    margin: 1rem;
+    border-radius: 1rem;
+    background: #fff;
+    overflow: hidden;
+}
+
+.results > p {
+    margin: 1.5rem;
+    color: #a6192e;
+}
+
+.table-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #e3e3e3;
+    vertical-align: top;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #000006;
+    color: #fff;
+    white-space: nowrap;
+}
+
+td {
+    min-width: 10rem;
+    overflow-wrap: anywhere;
+}
+
+tbody tr:nth-child(even) {
+    background: #fafafa;
+}

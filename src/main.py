@@ -9,10 +9,10 @@ TABLE_NAME = "MetObjects"
 CHUNK_SIZE = 1000
 
 # read csv file into pandas dataframe
-df = pd.read_csv("../MetObjects.csv", 
-                 dtype=str, 
-                 skip_blank_lines=False, 
-                 nrows=20, 
+df = pd.read_csv("../MetObjects.csv",
+                 dtype=str,
+                 skip_blank_lines=False,
+                 nrows=20,
                  usecols=["Object Number", "Object Name", "Title", "Country"])
 
 def import_csv_to_sqlite():

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The METS OpenCSV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="page-layout">
+        <aside class="sidebar" aria-label="Database queries">
+            <h1>The METS OpenCSV</h1>
+            <nav class="query-list" aria-label="Queries">
+                <form method="get">
+                    {% for query in queries %}
+                    <button type="submit" name="query" value="{{ query.id }}"{% if query.id == selected_query %} aria-current="true"{% endif %}>{{ query.label }}</button>
+                    {% endfor %}
+                </form>
+            </nav>
+        </aside>
+
+        <main class="results" aria-label="Query results">
+            {% if error %}
+            <p role="alert">{{ error }}</p>
+            {% elif selected_query and columns %}
+            <div class="table-scroll" role="region" aria-label="Scrollable query results" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in columns %}
+                            <th scope="col">{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>
